@@ -1,13 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-</body>
-<script src="/script.js"></script>
+  <head data-test-id="profile-head">
+    <meta charset="UTF-8" data-test-id="profile-meta-charset" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      data-test-id="profile-meta-viewport"
+    />
+    <title data-test-id="profile-title">Professional Profile Card</title>
+    <link rel="stylesheet" href="style.css" data-test-id="profile-link-css" />
+    <script src="script.js" defer data-test-id="profile-script-js"></script>
+  </head>
+  <body data-test-id="profile-body">
+    <main class="profile-page-container" data-test-id="profile-main-container">
+      <article class="profile-card" data-test-id="profile-card-article">
+        <header class="card-header" data-test-id="profile-card-header">
+          <div
+            class="profile-photo-wrapper"
+            data-test-id="profile-photo-wrapper"
+          >
+            <img
+              src="https://via.placeholder.com/150/007bff/ffffff?text=JP"
+              alt="Professional Profile Picture"
+              class="profile-photo"
+              data-test-id="profile-photo-img"
+            />
+          </div>
+          <h1 class="profile-name" data-test-id="profile-name-h1">
+            Jordan Pierce
+          </h1>
+          <p class="profile-title" data-test-id="profile-title-p">
+            Senior Frontend Engineer | UI/UX Advocate
+          </p>
+          <div class="status-indicator" data-test-id="profile-status-indicator">
+            <span class="status-dot" data-test-id="profile-status-dot"></span>
+            <span class="status-text" data-test-id="profile-status-text"
+              >Available for Projects</span
+            >
+          </div>
+        </header>
+
+        <section
+          class="card-section contact-info"
+          data-test-id="profile-section-contact"
+        >
+          <h2 class="section-title" data-test-id="contact-section-title-h2">
+            Get in Touch
+          </h2>
+          <nav class="social-links" data-test-id="profile-social-links-nav">
+            <a href="#" class="social-link" data-test-id="social-link-email"
+              >Email</a
+            >
+            <a href="#" class="social-link" data-test-id="social-link-linkedin"
+              >LinkedIn</a
+            >
+            <a href="#" class="social-link" data-test-id="social-link-github"
+              >GitHub</a
+            >
+          </nav>
+          <button class="cta-button" data-test-id="profile-cta-button">
+            View Resume (PDF)
+          </button>
+        </section>
+
+        <section
+          class="card-section bio-skills"
+          data-test-id="profile-section-skills"
+        >
+          <h2 class="section-title" data-test-id="skills-section-title-h2">
+            Core Expertise
+          </h2>
+          <ul class="skills-list" data-test-id="profile-skills-list-ul">
+            <li class="skill-item" data-test-id="skill-item-html">
+              Semantic HTML5
+            </li>
+            <li class="skill-item" data-test-id="skill-item-css">
+              Aesthetic CSS & SCSS
+            </li>
+            <li class="skill-item" data-test-id="skill-item-react">
+              React & Next.js
+            </li>
+            <li class="skill-item" data-test-id="skill-item-testing">
+              Automated Testing (Cypress)
+            </li>
+          </ul>
+          <p class="bio-summary" data-test-id="profile-bio-summary-p">
+            Passionate about building highly performant and accessible web
+            applications. Committed to clean code and exceptional user
+            experience.
+          </p>
+        </section>
+
+        <footer class="card-footer" data-test-id="profile-card-footer">
+          <p class="last-updated" data-test-id="profile-last-updated-p">
+            Profile last updated:
+            <span
+              id="update-date"
+              data-test-id="profile-update-date-span"
+            ></span>
+          </p>
+        </footer>
+      </article>
+    </main>
+  </body>
 </html>
