@@ -7,7 +7,7 @@ A simple profile card displaying user details and the current time in millisecon
 [View the live project here](https://yourproject.netlify.app)
 
 ## 💻 Repository
-[GitHub Repo](https://github.com/yourusername/project-name)
+[GitHub Repo](https://github.com/DsDigitalz/Profile-card-component-slash-page)
 
 ## 🧭 Features
 - Displays current time (in ms) using `Date.now()`
@@ -16,4 +16,4 @@ A simple profile card displaying user details and the current time in millisecon
 
 ## ⚙️ How to Run Locally
 1. Clone the repository:
-   git clone https://github.com/yourusername/project-name.git
+   git clone (https://github.com/DsDigitalz/Profile-card-component-slash-page)
