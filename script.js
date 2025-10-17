@@ -1,93 +1,38 @@
 /**
  * script.js
- * Optimized for automated testing and production environments.
- * * Key changes:
- * - Moved button click CSS effect to style.css.
- * - Replaced window.alert() with DOM text update.
- * - Logic is contained within functions for easier unit testing/mocking.
+ * Implements the core dynamic behavior: displaying the current time in milliseconds.
+ * Designed for automated testing compatibility.
  */
-
-// --- UTILITY FUNCTIONS (Easily Testable) ---
 
 /**
- * Calculates and formats the current date.
- * @returns {string} The formatted date string.
+ * Updates the 'Current Time (ms)' field with the accurate Date.now() value.
  */
-function getFormattedDate() {
-  const now = new Date();
-  const dateOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return now.toLocaleDateString("en-US", dateOptions);
+function updateCurrentTime() {
+  const timeElement = document.getElementById("current-time-ms");
+
+  if (timeElement) {
+    const nowMs = Date.now();
+    // Set the plain text content
+    timeElement.textContent = nowMs;
+
+    // Optional: Dispatch an event for advanced testing to verify timing
+    // document.dispatchEvent(new CustomEvent('time-updated', { detail: { time: nowMs } }));
+  }
 }
 
-/**
- * Handles the visual effect and simulated logic of the CTA button click.
- * @param {HTMLElement} buttonElement - The CTA button element.
- * @param {HTMLElement} messageElement - An element to display status messages (e.g., a hidden status area).
- */
-function handleCtaClick(buttonElement, messageElement) {
-  // 1. Start action state
-  buttonElement.classList.add("clicked-effect");
-  buttonElement.textContent = "Processing...";
-  messageElement.textContent = "Download started. Check console for details.";
-
-  // 2. Dispatch a custom event for automated tests to listen to
-  const event = new CustomEvent("cta-action-started", {
-    detail: { action: "resume-download" },
-  });
-  document.dispatchEvent(event);
-
-  // 3. Simulate asynchronous action (e.g., API call, download)
-  setTimeout(() => {
-    // 4. End action state
-    buttonElement.classList.remove("clicked-effect");
-    buttonElement.textContent = "View Resume (PDF)";
-    messageElement.textContent = "Resume action completed.";
-
-    // Dispatch a completion event
-    const completeEvent = new CustomEvent("cta-action-completed");
-    document.dispatchEvent(completeEvent);
-  }, 1000);
-}
-
-// --- INITIALIZATION (DOM Interaction) ---
+// --- INITIALIZATION ---
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Date Update
-  const updateDateElement = document.getElementById("update-date");
-  if (updateDateElement) {
-    // Use the testable function
-    updateDateElement.textContent = getFormattedDate();
-  }
+  // 1. Initial Time Update
+  updateCurrentTime();
 
-  // 2. CTA Button Setup
-  const ctaButton = document.querySelector(
-    '[data-test-id="profile-cta-button"]'
+  // 2. Set an interval to keep the time *reasonably* accurate,
+  // refreshing every second (1000ms).
+  // This addresses the requirement that the time should be accurate.
+  const updateInterval = 1000;
+  setInterval(updateCurrentTime, updateInterval);
+
+  console.log(
+    `Time updated initialized, refreshing every ${updateInterval}ms.`
   );
-
-  // 3. Create a dedicated element for status messages (better than alert())
-  // For testing, this allows us to verify the output message in the DOM.
-  const statusMessage = document.createElement("p");
-  statusMessage.setAttribute("data-test-id", "cta-status-message");
-  statusMessage.style.cssText =
-    "font-size: 0.8rem; margin-top: 10px; color: #f00; min-height: 1.5em;";
-
-  // Find where to append the status message (e.g., just before the footer)
-  const contactSection = document.querySelector(
-    '[data-test-id="profile-section-contact"]'
-  );
-  if (contactSection) {
-    contactSection.appendChild(statusMessage);
-  }
-
-  if (ctaButton) {
-    ctaButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      // Use the testable function
-      handleCtaClick(ctaButton, statusMessage);
-    });
-  }
 });
