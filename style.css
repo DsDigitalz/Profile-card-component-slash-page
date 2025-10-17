@@ -1,7 +1,7 @@
 /* Custom properties for easier theming (using enhanced aesthetic from previous step) */
 :root {
-  --primary-color: #1d4a7f; /* Deep Indigo/Navy */
-  --primary-light: #5b84b2; /* Lighter shade for accents */
+  --primary-color: #046ddd; /* Deep Indigo/Navy */
+  --primary-light: #53a5fc; /* Lighter shade for accents */
   --secondary-color: #495057; /* Darker gray for better readability */
   --background-color: #eef2f6; /* Very light, cool background */
   --card-background: #ffffff; /* Crisp White card */
@@ -78,7 +78,7 @@ body {
   margin: 0 auto 20px;
   /* Avatar styling remains the same */
   border-radius: 50%;
-  border: 5px solid var(--primary-light);
+  border: 3px solid var(--primary-light);
   padding: 4px;
   background-color: white;
   box-shadow: 0 0 0 6px rgba(29, 74, 127, 0.15);
@@ -179,7 +179,17 @@ body {
   flex-grow: 1;
   text-align: center;
   background-color: var(--card-background);
+
+ 
 }
+
+ .social-link:hover {
+    background-color: var(--primary-light);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
 .social-link:focus-visible {
   /* Visible focus style for accessibility */
   outline: 3px solid #ffaa00;
@@ -191,9 +201,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 0;
+  margin-bottom: 25px;
 }
 .skill-item {
+  
   background-color: #e2e8f0;
   color: var(--secondary-color);
   padding: 7px 14px;
@@ -206,6 +217,7 @@ body {
 }
 /* Style Dislikes differently for visual distinction */
 .dislikes-list .dislike-item {
+  
   background-color: #ffeaea;
   color: var(--status-dislike);
   border-color: #fdd;
