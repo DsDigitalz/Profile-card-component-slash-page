@@ -60,6 +60,7 @@ body {
   color: var(--secondary-color);
   font-style: italic;
   margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 /* --- HEADER / AVATAR LAYOUT (RESPONSIVENESS CORE) --- */
@@ -147,6 +148,7 @@ body {
   font-size: 1.35rem;
   color: var(--primary-color);
   margin-bottom: 15px;
+  margin-top: 15px;
   font-weight: 600;
   position: relative;
   padding-left: 0;
@@ -179,16 +181,14 @@ body {
   flex-grow: 1;
   text-align: center;
   background-color: var(--card-background);
-
- 
 }
 
- .social-link:hover {
-    background-color: var(--primary-light);
-    color: white;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-    transform: translateY(-2px);
-  }
+.social-link:hover {
+  background-color: var(--primary-light);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  transform: translateY(-2px);
+}
 
 .social-link:focus-visible {
   /* Visible focus style for accessibility */
@@ -204,7 +204,6 @@ body {
   margin-bottom: 25px;
 }
 .skill-item {
-  
   background-color: #e2e8f0;
   color: var(--secondary-color);
   padding: 7px 14px;
@@ -217,7 +216,6 @@ body {
 }
 /* Style Dislikes differently for visual distinction */
 .dislikes-list .dislike-item {
-  
   background-color: #ffeaea;
   color: var(--status-dislike);
   border-color: #fdd;
@@ -245,4 +243,140 @@ body {
     flex-direction: column;
     gap: 8px;
   }
+}
+
+/* --- CONTACT FORM SPECIFIC STYLES (Add to style.css) --- */
+
+/* Adapt the main card container for the contact form width */
+.contact-page-container {
+  max-width: 600px;
+}
+
+/* Form Group Styling */
+.form-group {
+  /* margin-bottom: 20px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(91, 132, 178, 0.3); /* Focus ring effect */
+  outline: none;
+  background-color: var(--card-background);
+}
+
+.form-group textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+/* Validation and Error States */
+.error-message {
+  color: var(--status-dislike); /* Reusing the dislike color (red) for errors */
+  font-size: 0.85rem;
+  margin-top: 5px;
+  min-height: 1.5em; /* Ensure layout doesn't jump when error appears */
+  font-weight: 500;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+  border-color: var(--status-dislike);
+}
+
+/* Success Message Styling */
+.success-message {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-align: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+.cta-button {
+  padding: 12px 15px 12px 15px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-light);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ABOUT PAGE */
+
+/* Ensure this rule is present in style.css for list styling */
+.goals-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* Stack goals vertically */
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+/* Reusing the skill-item style for lists (like goals/extra thoughts) */
+.skill-item {
+  background-color: #e2e8f0;
+  color: var(--secondary-color);
+  padding: 7px 14px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  /* Ensuring full width on individual list items */
+  /* width: 100%; */
+  box-sizing: border-box;
+}
+
+/* Specific styling for the reflective note */
+.italic-note {
+  font-size: 1.1rem;
+  color: var(--primary-color); /* Highlight the note */
+  background-color: #f6f8fb; /* Light background for separation */
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Ensure the container is wide enough for the text-heavy page */
+.about-page-container {
+  max-width: 700px;
+}
+
+.extra-list li {  
+  list-style-type: none;
 }
